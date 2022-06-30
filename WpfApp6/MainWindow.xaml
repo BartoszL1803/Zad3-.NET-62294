@@ -1,0 +1,47 @@
+﻿<Window x:Class="WpfApp6.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp6"
+        mc:Ignorable="d"
+        Title="Lista Filmów" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <ListBox Name="Film" ItemsSource="{Binding}" Height="300" Width="700">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Margin="2">
+                        <TextBlock Text="Tytuł: " Margin="2"/>
+                        <TextBlock Text="{Binding tytuł}" Margin="2"/>
+                        <TextBlock Text=", Reżyser: " Margin="2"/>
+                        <TextBlock Text="{Binding reżyser}" Margin="2"/>
+                        <TextBlock Text=", Studio: " Margin="2"/>
+                        <TextBlock Text="{Binding studio}" Margin="2"/>
+                        <TextBlock Text=", Nośnik: " Margin="2"/>
+                        <TextBlock Text="{Binding nośnik}" Margin="2"/>
+                        <TextBlock Text=", Data Wydania: " Margin="2"/>
+                        <TextBlock Text="{Binding dataWydania}" Margin="2"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <WrapPanel Grid.Row="1" >
+            <Button
+                Content="Dodaj"
+                Height="40"
+                Width="350"
+                Click="DodajFilm"/>
+            <Button
+                Content="Edytuj"
+                Height="40"
+                Width="350"
+                Click="EdytujFilm"/>
+        </WrapPanel>
+    </Grid>
+</Window>
